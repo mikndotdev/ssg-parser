@@ -1,8 +1,12 @@
 {
-  "name": "ssg-parser",
-  "module": "index.ts",
+  "name": "@mikandev/ssg-parser",
+  "version": "0.0.7",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
-  "private": true,
+  "scripts": {
+    "build": "tsc"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },

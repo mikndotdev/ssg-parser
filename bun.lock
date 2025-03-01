@@ -5,6 +5,7 @@
       "name": "ssg-parser",
       "dependencies": {
         "cheerio": "^1.0.0",
+        "ssg-parser": "^0.0.1",
       },
       "devDependencies": {
         "@types/bun": "latest",
@@ -58,6 +59,8 @@
     "parse5-parser-stream": ["parse5-parser-stream@7.1.2", "", { "dependencies": { "parse5": "^7.0.0" } }, "sha512-JyeQc9iwFLn5TbvvqACIF/VXG6abODeB3Fwmv/TGdLk2LfbWkaySGY72at4+Ty7EkPZj854u4CrICqNk2qIbow=="],
 
     "safer-buffer": ["safer-buffer@2.1.2", "", {}, "sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg=="],
+
+    "ssg-parser": ["ssg-parser@0.0.1", "", { "dependencies": { "cheerio": "^1.0.0" }, "peerDependencies": { "typescript": "^5" } }, "sha512-LqokmPL2VfVFBhN80JhY48/NfQ7EAqHBcaDlntgHmcFr3I6c5g43BqBHmYPIXR65ZOReYaS22v/r3FOwwq0JeA=="],
 
     "typescript": ["typescript@5.8.2", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-aJn6wq13/afZp/jT9QZmwEjDqqvSGp1VT5GVg+f/t6/oVyrgXM6BY1h9BRh/O5p3PlUPAe+WuiEZOmb/49RqoQ=="],
 

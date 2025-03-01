@@ -1,9 +1,15 @@
-import { scrapeSite } from './functions/get-pages.ts';
-import { JinaParse } from './functions/jina-parse.ts';
-import { promises as fs } from 'node:fs';
-import path from 'node:path';
+import { scrapeSite } from './functions/get-pages';
+import { JinaParse } from './functions/jina-parse';
 
-async function compileParsedText(baseUrl: string, apiKey: string, outputFilePath: string) {
+/**
+ * Compiles parsed text from all internal links of a given base URL.
+ *
+ * @param {string} baseUrl - The base URL to start scraping from.
+ * @param {string} apiKey - The API key for the Jina Reader API.
+ * @returns {Promise<string>} - A promise that resolves to the compiled text.
+ * @throws Will throw an error if there is an issue with fetching or parsing the URLs.
+ */
+export async function compile(baseUrl: string, apiKey: string): Promise<string> {
     try {
         const urls = await scrapeSite(baseUrl);
 
@@ -18,18 +24,9 @@ async function compileParsedText(baseUrl: string, apiKey: string, outputFilePath
             }
         }
 
-        const compiledText = parsedTexts.join('\n\n');
-
-        await fs.writeFile(outputFilePath, compiledText, 'utf-8');
-        console.log(`Compiled text saved to ${outputFilePath}`);
+        return parsedTexts.join('\n\n');
     } catch (error: any) {
         console.error(`Error compiling parsed text:`, error.message);
+        throw error;
     }
 }
-
-// Example usage
-const baseUrl = 'https://docs.mikn.dev';
-const apiKey = process.env.JINA_API_KEY as string;
-const outputFilePath = path.join(__dirname, 'compiled-text.txt');
-
-compileParsedText(baseUrl, apiKey, outputFilePath);
