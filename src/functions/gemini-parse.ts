@@ -1,7 +1,7 @@
 import { google } from "@ai-sdk/google";
 import { generateText } from "ai";
 
-const model = google("gemini-2.0-flash-lite-preview-latest");
+const model = google("gemini-2.0-flash-lite-preview-02-05");
 
 export async function geminiParse(data: string) {
 	const prompt = `# Task
